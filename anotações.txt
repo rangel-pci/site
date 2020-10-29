@@ -1,0 +1,7 @@
+-CORES
+verde -> #00E963
+verde 2 -> #00E5A9
+azul -> #21B6E5
+------
+
+Skills
