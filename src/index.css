@@ -13,6 +13,8 @@
 	font-family: 'Nunito';
 
 	scroll-behavior: smooth;
+
+	outline-color: #00E963;
 }
 
 a, button{

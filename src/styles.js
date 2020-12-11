@@ -154,7 +154,7 @@ export const Nav = styled.nav`
 	}
 `;
 
-export const Logo = styled.h6`
+export const Logo = styled.a`
 	color: #00E963;
 `;
 
@@ -183,7 +183,7 @@ export const About = styled.section`
 
 	h1{
 		font-size: 32px;
-		background: #00E5A9;
+		background: #00E963;
 		border-radius: 50px;
 		padding: 8px 0;
 		text-align: center;
@@ -192,7 +192,7 @@ export const About = styled.section`
 		font-size: 21px;
 		margin-top: 24px;
 		margin-bottom: 80px;
-		text-align: justify;
+		
 	}
 
 	:before{
@@ -238,9 +238,33 @@ export const About = styled.section`
 			width: 200px;
 			height: 200px;
 
-			object-fit: cover;
+			
+			z-index: 1;
+
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 100%;
+			}
+
+			position: relative;
+		}
+
+		.perfil-img::before{
+			content: "";
+			width: 206px;
+			height: 206px;
 
 			border-radius: 100%;
+
+			position: absolute;
+			top: -3px;
+			left: -3px;
+
+			z-index: -1;
+
+			background: linear-gradient(to left, #00E963, #21B6E5);
 		}
 
 		.grid{
@@ -302,11 +326,10 @@ export const Skill = styled.section`
 	}
 
 	.flex-c{
-		height: 100%;
-
+		min-height: calc(100vh - 75.5px);
 		display: flex;
 		flex-direction: column;
-		justify-content: space-around;
+		justify-content: space-between;
 	}
 `;
 
@@ -365,6 +388,7 @@ export const Project = styled.section`
 	color: #f1f1f1;
 
 	padding-top: 75.5px;
+	padding-bottom: 8px;
 
 	h2{
 		margin-top: 24px;
@@ -381,15 +405,90 @@ export const FlexGrid = styled.div`
 	grid-template-rows: repeat(auto-fill, 1fr);
 	grid-gap: 14px;
 
+	overflow: hidden;
+
 	button{
 		width: 100%;
 		cursor: pointer;
 
 		background: none;
 		border: none;
+		color: #fff;
+
+		overflow: hidden;
+		position: relative;
+
+		transition: 0.5s all;
 	}
 	button img{
 		width: 100%;
+		transition: 0.5s all;
+	}
+
+	button::after{
+		content: "";
+		width: 100%;
+		height: 100%;
+
+		position: absolute;
+		bottom: 100%;
+		right: 0;
+
+		z-index: 1;
+
+		background: linear-gradient(-45deg, #00E963, #21B6E5);
+		opacity: 0.7;
+
+		transition: 0.5s all;
+	}
+
+	.projectTitle{
+		position: absolute;
+		bottom: -50%;
+		left: 50%;
+
+
+		transform: translateX(-50%);
+
+		width: 80%;
+
+		z-index: 2;
+
+		background: #fff;
+
+		padding: 8px 14px;
+		color: #4f4f4f;
+		font-size: 16px;
+
+		border-radius: 10px;
+
+		transition: 0.5s all;
+
+		img{
+			width: 15px !important;
+			transform: scale(1) !important;
+			margin-top: auto;
+		}
+
+		transition: 0.5s all;
+	}
+
+	button:hover{
+		border-radius: 10px;
+	}
+
+	button:hover:after{
+		bottom: 0;
+	
+		border-radius: 10px;
+	}	
+
+	button:hover img{
+		transform: scale(1.5);
+	}
+
+	button:hover .projectTitle{
+		bottom: 40%;
 	}
 `;
 
@@ -405,6 +504,9 @@ export const Contact = styled.section`
 
 	min-height: 400px;
 
+	h2{
+		margin-top: 24px;
+	}
 	p{
 		font-size: 18px;
 		margin: 14px 0;
@@ -446,11 +548,9 @@ export const Footer = styled.footer`
 	text-align: center;
 	color: #f1f1f1;
 
-	border-top: 2px solid #f1f1f1;
-
 	p{
 		font-size: 13px;
-		margin: 14px 0;
+		margin: 1px 0;
 	}
 `;
 
@@ -480,11 +580,11 @@ export const ProjectModal = styled.span`
 	padding: 0 24px;
 	padding-bottom: 60px;
 
-	background: #f1f1f1;
+	background: #171717;
 
 	z-index: 100;
 
-	color: #4f4f4f;
+	color: #f1f1f1;
 
 	.header{
 		padding: 14px 0;
@@ -517,10 +617,11 @@ export const ProjectModal = styled.span`
 		justify-content: center;
 		font-size: 18px;
 		font-weigth: 600;
+		color: #f1f1f1;
 
 		padding: 14px 0;
 		border: none;
-		background: #f1f1f1;
+		background: #171717;
 
 		box-shadow: 0 0 5px rgba(0,0,0,0.25);
 	}
