@@ -70,7 +70,7 @@ export default class App extends Component {
               <div>
                 <h1>Rangel Pereira</h1>
                 <p>
-                  Brasiliense, 20 anos, técnico em desenvolvimento de sistemas e estudande de análise e desenvolvimento de sistemas. Usuário de <Highlight><strong>PHP</strong></Highlight> e <Highlight2><strong>JavaScript</strong></Highlight2>.
+                  Brasiliense, 21 anos, técnico em desenvolvimento de sistemas e estudante de análise e desenvolvimento de sistemas. Desenvolvedor <Highlight><strong>PHP</strong></Highlight> e <Highlight2><strong>JavaScript</strong></Highlight2>.
                 </p>
                 <p>
                   Brasília - DF - Via Láctea.
@@ -107,25 +107,23 @@ export default class App extends Component {
                   <FloatingBlock time="2">Figma</FloatingBlock>
                   <FloatingBlock time="1.5">Insomnia</FloatingBlock>
                   <FloatingBlock time="2">Git</FloatingBlock>
-                  <FloatingBlock time="1.5">Composer</FloatingBlock>
-                  <FloatingBlock time="2">npm</FloatingBlock>
                   <FloatingBlock time="1.5">...</FloatingBlock>
                 </Blocks>
-                <h2>Estudando</h2>
+              </div>
+
+              <div>
+              <h2>Trabalhando com:</h2>
                 <Blocks>
-                  <FloatingBlock time="3.5">
+                  <FloatingBlock time="2.5">
                     <Highlight>
                       <Typical
-                        steps={['ReactJS', 2000, 'React-Native', 2000, 'NodeJS', 2000]}
+                        steps={['Integração de Dados', 2000, 'Oracle Application Express', 2000, 'Oracle DB', 2000, 'SQL Server', 2000,]}
                         loop={Infinity}
                         wrapper="small"
                       />
                     </Highlight>
                   </FloatingBlock>
                 </Blocks>
-              </div>
-
-              <div>
                 <a href="#projects"><img width="30px" src={process.env.PUBLIC_URL + '/assets/arrow-down.svg'} alt="" /></a>
               </div>
             </Container>

@@ -38,7 +38,7 @@ const projects = {
           </p>
           <hr/>
           <p>
-          Neste projeto foi desenvolvido no Back End uma api com <Highlight>Laravel</Highlight> usando <Highlight>JSON Web Token</Highlight> como método de autenticação e <Highlight>AWS S3</Highlight> para o armazenamento em nuvem das imagens de produtos, logos, banners etc, e um blog em <Highlight>WordPress</Highlight>.
+          Neste projeto foi desenvolvido no Back End uma api com <Highlight>Laravel</Highlight> utilizando <Highlight>JSON Web Token</Highlight> como método de autenticação, integração do gateway de pagamento <Highlight>Pag Seguro</Highlight> para o pagamento por recorrência, <Highlight>AWS S3</Highlight> para o armazenamento em nuvem das imagens de produtos, logos, banners etc, e um blog em <Highlight>WordPress</Highlight>.
           <br/>
           No Front End foi usado <Highlight2>JQuery</Highlight2> para manipulação do DOM + <Highlight2>axios</Highlight2> para as requisições AJAX ao servidor.
           </p>
