@@ -555,22 +555,27 @@ export const Footer = styled.footer`
 `;
 
 const showModal = keyframes`
-	0% { transform: translateX(-100%);}
-	50% { transform: translateX(-10%);}
-	100% { transform: translateX(0);}
+	0% { left: -100%;}
+	100% { left: 0;}
 `;
-
+const showModalReturnButton = keyframes`
+	0% { left: -100%;}
+	100% { left: 0;}
+`;
 const hideModal = keyframes`
-	0% { transform: translateX(0);}
-	50% { transform: translateX(-10%);}
-	100% { transform: translateX(-100%);}
+	0% { left: 0;}
+	100% { left: -100%; display: none}
+`;
+const hideModalReturnButton = keyframes`
+	0% { left: 0;}
+	100% { left: -100%; display: none}
 `;
 
 export const ProjectModal = styled.span`
-	display: ${props => props.display};
+	display: block;
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: -100%;
 
 	width: 100%;
 	height 100%;
@@ -580,11 +585,17 @@ export const ProjectModal = styled.span`
 	padding: 0 24px;
 	padding-bottom: 60px;
 
-	background: #171717;
+	background-image: url(${process.env.PUBLIC_URL}/assets/repeated-square-dark.webp);
+  	background-repeat:repeat;
 
 	z-index: 100;
 
 	color: #f1f1f1;
+
+	a{
+		color: #b57dff;
+    	text-decoration: underline;
+	}
 
 	.header{
 		padding: 14px 0;
@@ -609,7 +620,7 @@ export const ProjectModal = styled.span`
 	.return{
 		position: fixed;
 		bottom: 0;
-		left: 0;
+		left: -100%;
 
 		width: 100%;
 
@@ -624,6 +635,19 @@ export const ProjectModal = styled.span`
 		background: #171717;
 
 		box-shadow: 0 0 5px rgba(0,0,0,0.25);
+
+		${
+			props => props.action === 'show' && css 
+			`
+				animation: ${showModalReturnButton} 0.5s forwards;
+			`
+		}
+		${
+			props => props.action === 'hide' && css 
+			`
+				animation: ${hideModalReturnButton} 0.5s forwards;
+			`
+		}
 	}
 
 	.return img{
@@ -633,13 +657,13 @@ export const ProjectModal = styled.span`
 	${
 		props => props.action === 'show' && css 
 		`
-    		animation: ${showModal} 0.5s linear;
+    		animation: ${showModal} 0.5s forwards;
 		`
 	}
 	${
 		props => props.action === 'hide' && css 
 		`
-    		animation: ${hideModal} 0.5s linear;
+    		animation: ${hideModal} 0.5s forwards;
 		`
 	}
 `;

@@ -3,12 +3,12 @@ import projects from './projects';
 import './index.css';
 
 import { 
-  Highlight, Highlight2, Header, Wrap, ToggleMenu, Nav, Logo, Main, Container,
+  Highlight, Highlight2, Header, Wrap, ToggleMenu, Nav, Main, Container,
   About, Skill, Blocks, FloatingBlock, Project, FlexGrid, Contact, Footer,
   ProjectModal
 } from './styles';
 
-import Typical from 'react-typical'
+import TypeAnimation from 'react-type-animation'
 
 export default class App extends Component {
   constructor(props){
@@ -16,7 +16,7 @@ export default class App extends Component {
     this.state = {
       toggleMenuOn: 0,
       projects: projects,
-      projectModal: {display: 'none', action: 'hide', title:'', text: () => false},
+      projectModal: {display: '', action: '', title:'', text: () => false},
     }
   }
 
@@ -32,7 +32,7 @@ export default class App extends Component {
   }
 
   hideModalProject = () => {
-    this.setState({ projectModal: { display: 'none', action: 'hide', title: '', text: () => false }});
+    this.setState({ projectModal: { display: 'block', action: 'hide', title: '', text: () => false }});
     document.body.style.overflowY = "scroll";
   }
 
@@ -44,8 +44,7 @@ export default class App extends Component {
         
         <Header>
           <Wrap>
-            <Logo href="#top"><img src={process.env.PUBLIC_URL + '/assets/logo.svg'} height="60px" alt="" title="Topo"/></Logo>
-
+            <span></span>
             <ToggleMenu on={this.state.toggleMenuOn} onClick={this.toggleMenu}><div></div><div></div><div></div></ToggleMenu>
 
             <Nav on={this.state.toggleMenuOn}>
@@ -61,19 +60,19 @@ export default class App extends Component {
 
         {/* About me */}
         <Main>
-          <About id="about" imageUrl={process.env.PUBLIC_URL + '/assets/profile_img.jpg'} imageUrl2={process.env.PUBLIC_URL + '/assets/profile_img_desktop.jpg'}>
+          <About id="about" imageUrl={process.env.PUBLIC_URL + '/assets/profile_img.jpg'} imageUrl2={process.env.PUBLIC_URL + '/assets/profile_img_desktop.webp'}>
             <Container className="grid">
               <div className="perfil-img">
-                <img src={process.env.PUBLIC_URL + '/assets/profile_img_desktop.png'} alt="foto de Rangel Pereira" />
+                <img src={process.env.PUBLIC_URL + '/assets/profile_img_desktop.webp'} alt="foto de Rangel Pereira" />
               </div>                
               
               <div>
                 <h1>Rangel Pereira</h1>
                 <p>
-                  Brasiliense, 21 anos, técnico em desenvolvimento de sistemas e estudante de análise e desenvolvimento de sistemas. Desenvolvedor <Highlight><strong>PHP</strong></Highlight> e <Highlight2><strong>JavaScript</strong></Highlight2>.
+                  Brasiliense, 22 anos, técnico em desenvolvimento de sistemas e estudante de análise e desenvolvimento de sistemas. Desenvolvedor <Highlight><strong>PHP</strong></Highlight> e <Highlight2><strong>JavaScript</strong></Highlight2>.
                 </p>
                 <p>
-                  Brasília - DF - Via Láctea.
+                  Brasília - DF.
                 </p>
               </div>
             </Container>
@@ -96,16 +95,18 @@ export default class App extends Component {
                   <FloatingBlock time="2">Bootstrap</FloatingBlock>
                   <FloatingBlock time="1.5">HTML</FloatingBlock>
                   <FloatingBlock time="2">CSS</FloatingBlock>
-                  <FloatingBlock time="1.5">API</FloatingBlock>
-                  <FloatingBlock time="2">MVC</FloatingBlock>
-                  <FloatingBlock time="1.5">JWT</FloatingBlock>
+                  <FloatingBlock time="1.5">Web Service</FloatingBlock>
+                  <FloatingBlock time="2">REST</FloatingBlock>
+                  <FloatingBlock time="1.5">MVC</FloatingBlock>
+                  <FloatingBlock time="2">JWT</FloatingBlock>
+                  <FloatingBlock time="1.5">...</FloatingBlock>
                 </Blocks>
                 <h2>Ferramentas</h2>
                 <Blocks>
                   <FloatingBlock time="2">Trello</FloatingBlock>
                   <FloatingBlock time="1.5">Sublime Text</FloatingBlock>
                   <FloatingBlock time="2">Figma</FloatingBlock>
-                  <FloatingBlock time="1.5">Insomnia</FloatingBlock>
+                  <FloatingBlock time="1.5">Postman</FloatingBlock>
                   <FloatingBlock time="2">Git</FloatingBlock>
                   <FloatingBlock time="1.5">...</FloatingBlock>
                 </Blocks>
@@ -113,14 +114,15 @@ export default class App extends Component {
 
               <div>
               <h2>Trabalhando com:</h2>
-                <Blocks>
+                <Blocks style={{height: '56px'}}>
                   <FloatingBlock time="2.5">
                     <Highlight>
-                      <Typical
-                        steps={['Integração de Dados', 2000, 'Oracle Application Express', 2000, 'Oracle DB', 2000, 'SQL Server', 2000,]}
-                        loop={Infinity}
-                        wrapper="small"
-                      />
+                      <TypeAnimation
+                        cursor={false}
+                        sequence={['Oracle Application Express', 1500, 'Oracle Data Base', 1500, 'SQL Server', 1500]}
+                        wrapper="span"
+                        repeat={Infinity}
+                      />|
                     </Highlight>
                   </FloatingBlock>
                 </Blocks>
@@ -133,37 +135,37 @@ export default class App extends Component {
           <Project id="projects">
             <Container>
              <h2>Projetos</h2>
-             <p>Estes são alguns dos meus projetos, veja mais no meu <a href="https://github.com/rangel-pci" target="_blank" rel="noopener noreferrer"><Highlight>GitHub</Highlight></a>.</p>
+             <p>Estes são alguns dos meus trabalhos e projetos, veja mais no meu <a href="https://github.com/rangel-pci" target="_blank" rel="noopener noreferrer"><Highlight>GitHub</Highlight></a>.</p>
 
              <FlexGrid>
+                <button onClick={() => this.showModalProject(projects.winPro)}>
+                  <p className="projectTitle">WinPro <img src="./assets/info.svg" alt="info icon" /></p>
+                  <img src={process.env.PUBLIC_URL + '/assets/png7.webp'} alt="projeto 1" />
+                  <span><Highlight>Laravel</Highlight> + <Highlight2>JQuery</Highlight2> + <Highlight2>Bootstrap</Highlight2></span>
+                </button>
                 <button onClick={() => this.showModalProject(projects.rastreioDeEncomendas)}>
-                  <p className="projectTitle">Rastreio de Encomendas <img src="./assets/info.svg" /></p>
-                  <img src={process.env.PUBLIC_URL + '/assets/png6.png'} alt="projeto 1" />
+                  <p className="projectTitle">Rastreio de Encomendas <img src="./assets/info.svg" alt="info icon" /></p>
+                  <img src={process.env.PUBLIC_URL + '/assets/png6.webp'} alt="projeto 2" />
                   <span><Highlight2>React Native</Highlight2> | <Highlight>Node.JS</Highlight> + <Highlight2>JQuery</Highlight2></span>
                 </button>
                 <button onClick={() => this.showModalProject(projects.minhaloji)}>
-                  <p className="projectTitle">MinhaLoji <img src="./assets/info.svg" /></p>
-                  <img src={process.env.PUBLIC_URL + '/assets/png1.png'} alt="projeto 2" />
+                  <p className="projectTitle">MinhaLoji <img src="./assets/info.svg" alt="info icon" /></p>
+                  <img src={process.env.PUBLIC_URL + '/assets/png1.webp'} alt="projeto 3" />
                   <span><Highlight>Laravel</Highlight> + <Highlight>AWS S3</Highlight> + <Highlight>PagSeguro API</Highlight> + <Highlight2>JQuery</Highlight2></span>
                 </button>
                 <button onClick={() => this.showModalProject(projects.pwm)}>
-                  <p className="projectTitle">PWM <img src="./assets/info.svg" /></p>
-                  <img src={process.env.PUBLIC_URL + '/assets/png2.png'} alt="projeto 3" />
-                  <span><Highlight>PHP</Highlight> + <Highlight2>React JS</Highlight2></span>
+                  <p className="projectTitle">PWM <img src="./assets/info.svg" alt="info icon" /></p>
+                  <img src={process.env.PUBLIC_URL + '/assets/png2.webp'} alt="projeto 4" />
+                  <span><Highlight>PHP</Highlight> + <Highlight>API</Highlight> + <Highlight>JWT</Highlight> + <Highlight2>React JS</Highlight2></span>
                 </button>
                 <button onClick={() => this.showModalProject(projects.covid19panel)}>
-                  <p className="projectTitle">Painel Covid-19 <img src="./assets/info.svg" /></p>
-                  <img src={process.env.PUBLIC_URL + '/assets/png3.png'} alt="projeto 4" />
+                  <p className="projectTitle">Painel Covid-19 <img src="./assets/info.svg" alt="info icon" /></p>
+                  <img src={process.env.PUBLIC_URL + '/assets/png3.webp'} alt="projeto 5" />
                   <span><Highlight2>React JS</Highlight2></span>
                 </button>
-                <button onClick={() => this.showModalProject(projects.gustavoRiether)}>
-                  <p className="projectTitle">Gustavo Riether <img src="./assets/info.svg" /></p>
-                  <img src={process.env.PUBLIC_URL + '/assets/png4.png'} alt="projeto 5" />
-                  <span><Highlight>WordPress</Highlight></span>
-                </button>
                 <button onClick={() => this.showModalProject(projects.ecoleta)}>
-                  <p className="projectTitle">Ecoleta <img src="./assets/info.svg" /></p>
-                  <img src={process.env.PUBLIC_URL + '/assets/png5.png'} alt="projeto 6" />
+                  <p className="projectTitle">Ecoleta <img src="./assets/info.svg" alt="info icon" /></p>
+                  <img src={process.env.PUBLIC_URL + '/assets/png5.webp'} alt="projeto 6" />
                   <span><Highlight>Node.JS</Highlight> + <Highlight2>JavaScript</Highlight2></span>
                 </button>
              </FlexGrid>
@@ -172,7 +174,7 @@ export default class App extends Component {
           </Project>
 
           {/* My contact */}
-          <Contact id="contact" imageUrl={process.env.PUBLIC_URL + '/assets/contact.jpg'}>
+          <Contact id="contact" imageUrl={process.env.PUBLIC_URL + '/assets/contact.webp'}>
             <Container className="flex-c">
               <h2>Contato</h2>
               <p>
