@@ -159,7 +159,7 @@ export const Logo = styled.a`
 `;
 
 export const Main = styled.main`
-	width: 100%;a
+	width: 100%;
 `;
 
 // About me
@@ -168,7 +168,7 @@ export const About = styled.section`
 
 	color: #fff;
 
-	height: calc(100vh);
+	min-height: calc(100vh);
 	overflow: hidden;
 	
 	position: relative;

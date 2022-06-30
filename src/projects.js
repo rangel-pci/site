@@ -5,6 +5,28 @@ import {
 
 // projects
 const projects = {
+  adoteUmPet: {
+    title: 'Adote um Pet',
+    text: () =>{
+      return(
+        <div>
+          <p>
+            Demo disponível em: <a href="https://rangel-pets.vercel.app/" target="_blank" rel="noopener noreferrer">rangel-pets.vercel.app</a>
+            <br/>
+            Código fonte disponível em: <a href="https://github.com/rangel-pci/adoteumpet" target="_blank" rel="noopener noreferrer">github.com/rangel-pci/adoteUmPet</a>.
+            <br/>
+            Sobre: Aplicação para cadastro, adoção virtual e consulta de animais em situação de rua.
+          </p>
+          <hr/>
+          <p>
+            No Back-end construi uma API utilizando <Highlight>Laravel</Highlight> mais a lib <Highlight>Intervetion Image</Highlight> para receber e manipular as imagens enviadas pelo client.
+            Já no Front-end utilizei <Highlight2>Next.JS</Highlight2> com <Highlight2>TypeScript</Highlight2> e algumas libs para a estilização e validação como <Highlight2>Material UI</Highlight2>, <Highlight2>React-Toastify</Highlight2> e <Highlight2>Yup Validation</Highlight2>.
+          </p>
+        </div>
+      );
+    },
+  },
+
   winPro: {
     title: 'winPro.com.br',
     text: () =>{
@@ -104,7 +126,7 @@ const projects = {
           <br/>
           Utilizei também a <a href="https://api.rawg.io/docs/" target="_blank" rel="noopener noreferrer">RAWG Video Games Database API</a> para a extração de dados de alguns jogos, e os pacotes <Highlight>PHPMailer</Highlight> para o envio de e-mail contendo a chave de ativação da conta e <Highlight>lcobucci/jwt</Highlight> para trabalhar com o JWT.
           <br/>
-          No Front-end utilizei o <Highlight2>React JS</Highlight2> e mais algumas ferramentas como <Highlight2>Axios</Highlight2> para as requests HTTP, <Highlight2>React Router</Highlight2> para o controle das rotas e <Highlight2>node-jsonWebToken</Highlight2> para trabalhar com o JWT.
+          No Front-end utilizei o <Highlight2>React.JS</Highlight2> e mais algumas ferramentas como <Highlight2>Axios</Highlight2> para as requests HTTP, <Highlight2>React Router</Highlight2> para o controle das rotas e <Highlight2>node-jsonWebToken</Highlight2> para trabalhar com o JWT.
         </p>
         </div>
       );
@@ -123,7 +145,7 @@ const projects = {
           </p>
           <hr/>
           <p>
-          Aplicação feita em <Highlight2>React JS</Highlight2> consumindo e se mantendo atualizada diariamente com dados recebidos através da api do Ministério da Saúde.
+          Aplicação feita em <Highlight2>React.JS</Highlight2> consumindo e se mantendo atualizada diariamente com dados recebidos através da api do Ministério da Saúde.
           </p>
         </div>
       );
